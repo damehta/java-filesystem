@@ -22,6 +22,7 @@
 **Desired Improvements:**
 * Better error handling
 * Build AI to allow user to input either relative or absolute path. 
+* Add more comprehensive tests. 
 
 **Source Code:**
 * Create desired project workspace directory. example: ~/Documents/workspace/ 
