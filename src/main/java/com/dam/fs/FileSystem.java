@@ -95,8 +95,8 @@ public class FileSystem {
      * @param fileName  existing file name
      * @return          File content
      */
-    public StringBuffer catFile(String path, String fileName){
+    public String catFile(String path, String fileName) {
         FileNode curr = goToCurrDir(path);
-        return curr.children.get(fileName).content;
+        return curr.children.get(fileName).content.toString();
     }
 }

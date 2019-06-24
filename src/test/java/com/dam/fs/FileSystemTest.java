@@ -53,7 +53,7 @@ public class FileSystemTest {
         assertEquals(expected, (fs.ls("/home")));
         System.out.println(fs.ls("/home"));
 
-        assertEquals("Hello World!", (fs.catFile("/home", "readme.txt")).toString());
+        assertEquals("Hello World!", (fs.catFile("/home", "readme.txt")));
         System.out.println(fs.catFile("/home", "readme.txt"));
 
     }
