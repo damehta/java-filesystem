@@ -20,7 +20,6 @@
     * createFile, cat, takes O(n) time. It takes O(n) time to navigate directory structure and constant time to create, append or read a file. 
      
 **Desired Improvements:**
-* Better error handling
 * Build AI to allow user to input either relative or absolute path. 
 * Add more comprehensive tests. 
 

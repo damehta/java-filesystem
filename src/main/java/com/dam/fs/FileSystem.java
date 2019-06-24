@@ -16,7 +16,9 @@ public class FileSystem {
      * @return
      */
     public boolean mkdir(String path){
-//        TODO Error handling
+        if(path == null || path.isEmpty() || path.equals("/") || !path.startsWith("/")) {
+            return false;
+        }
         String[] tokens = path.split("/");
         FileNode curr = root;
         boolean isCreated = false;
@@ -49,12 +51,14 @@ public class FileSystem {
      * @return      current directory
      */
     private FileNode goToCurrDir(String path) {
-//        TODO Error handling
-        String[] tokens = path.split("/");
+        if(path == null || path.isEmpty() || path.equals("/") || !path.startsWith("/")) {
+            throw new IllegalArgumentException("Invalid path. Please provide valid absolute path");
+        }
         FileNode curr = root;
+        String[] tokens = path.split("/");
         for(int i=1; i<tokens.length; i++){
             if(!curr.children.containsKey(tokens[i])){
-                throw new IllegalArgumentException("Invalid path. Please provide absolute path");
+                throw new IllegalArgumentException("Invalid path. Please provide valid absolute path");
             }
             curr = curr.children.get(tokens[i]);
         }
@@ -68,8 +72,13 @@ public class FileSystem {
      * @param content   file content
      */
     public void appendToFile(String path, String fileName, String content){
-//        TODO error check if file name exists
+        if(path == null || path.isEmpty() || path.equals("/") || !path.startsWith("/")) {
+            throw new IllegalArgumentException("Invalid path. Please provide valid absolute path");
+        }
         FileNode curr = goToCurrDir(path).children.get(fileName);
+        if(curr==null){
+                throw new IllegalArgumentException("File not found");
+        }
         curr.content.append(content);
     }
 
